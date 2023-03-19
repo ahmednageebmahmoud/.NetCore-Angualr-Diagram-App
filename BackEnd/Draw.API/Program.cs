@@ -21,8 +21,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
 //Add DB Context 
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PC_Windows")));
 
-//Add Repositry As Transient
-builder.Services.AddTransient(typeof(IRepositry<>), typeof(Repositry<>));
+//Add UnitOfWork Repositry As Transient
+builder.Services.AddTransient<IUnitOfWork, UnitOfWork>;
 
 
 var app = builder.Build();
