@@ -1,10 +1,13 @@
-﻿using Draw.Core.Repositories;
+﻿using Draw.Core.Model;
+using Draw.Core.Repositories;
+
 namespace Draw.EF.Repositories
 {
- public   class UnitOfWork: IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationContext _context;
-        IRepositry<ApplicationUser> Users { get; private set; }
+        public IRepositry<ApplicationUser> Users { get; private set; }
+
 
         public UnitOfWork(ApplicationContext context)
         {
@@ -13,8 +16,9 @@ namespace Draw.EF.Repositories
         }
 
 
-        public int ComplateComplate() => this._context.SaveChanges();
+        public int Complate() => this._context.SaveChanges();
         public void Dispose() => this._context.Dispose();
+
 
     }
 }

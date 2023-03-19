@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.API", "Draw.API\Draw.API.csproj", "{D5D9699B-F386-4D73-A39A-A1DC646AAE25}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draw.API", "Draw.API\Draw.API.csproj", "{D5D9699B-F386-4D73-A39A-A1DC646AAE25}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.Core", "Draw.Core\Draw.Core.csproj", "{BE59F37C-6CC0-43CA-95B9-9DC5891B14B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draw.Core", "Draw.Core\Draw.Core.csproj", "{BE59F37C-6CC0-43CA-95B9-9DC5891B14B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.EF", "Draw.EF\Draw.EF.csproj", "{91EFB72A-CE83-4404-BA1F-FCA2E68C6B95}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draw.EF", "Draw.EF\Draw.EF.csproj", "{91EFB72A-CE83-4404-BA1F-FCA2E68C6B95}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.BLL", "Draw.BLL\Draw.BLL.csproj", "{E3CF8D1F-1302-4392-B662-103F72C046F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{91EFB72A-CE83-4404-BA1F-FCA2E68C6B95}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91EFB72A-CE83-4404-BA1F-FCA2E68C6B95}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91EFB72A-CE83-4404-BA1F-FCA2E68C6B95}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E3CF8D1F-1302-4392-B662-103F72C046F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3CF8D1F-1302-4392-B662-103F72C046F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3CF8D1F-1302-4392-B662-103F72C046F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3CF8D1F-1302-4392-B662-103F72C046F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
