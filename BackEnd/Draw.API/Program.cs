@@ -10,8 +10,12 @@ using Draw.BLL.Service;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Draw.BLL.Model;
+using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
+
+//Add Cors And Create Policy For Ng App
+builder.Services.AddCors(c =>c.AddPolicy("ngApp", options =>options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader()));
 
 // Add services to the container.
 
@@ -59,9 +63,11 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-
-
 var app = builder.Build();
+
+//Use Cors
+app.UseCors("ngApp");
+
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -69,6 +75,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+
 
 app.UseHttpsRedirection();
 

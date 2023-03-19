@@ -9,8 +9,8 @@ namespace Draw.BLL.Interface
 {
     public interface IAuthService : IService
     {
-        Task<AuthModel> Register(RegisterModel register);
-        Task<AuthModel> Login(LoginModel login);
+        Task<IResponse<AuthModel>> Register(RegisterModel register);
+        Task<IResponse<AuthModel>> Login(LoginModel login);
 
     }
 }

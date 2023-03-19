@@ -8,9 +8,7 @@ namespace Draw.Core.Model
 {
     public class AuthModel
     {
-        public string Message { get; set; }
         public List<string> Roles { get; set; }
-        public bool IsAuthenticated { get; set; }
         public string Token { get; set; }
 
     }

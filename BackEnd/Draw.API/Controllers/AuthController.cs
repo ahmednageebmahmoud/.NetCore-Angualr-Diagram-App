@@ -1,10 +1,12 @@
 ﻿using Draw.BLL.Interface;
 using Draw.Core.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Draw.API.Controllers
 {
+    [EnableCors()]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
@@ -16,40 +18,42 @@ namespace Draw.API.Controllers
             this._authService = authService;
         }
 
+ 
         [HttpPost("register")]
-        public async Task<IActionResult> Register([FromBody] RegisterModel registerModel)
+
+        public async Task<ActionResult<IResponse<AuthModel>>> Register([FromBody] RegisterModel registerModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var Result = await this._authService.Register(registerModel);
-            if (!Result.IsAuthenticated)
+            var Reponse = await this._authService.Register(registerModel);
+            if (!Reponse.IsSuccess)
             {
-                return BadRequest(Result.Message);
+                return BadRequest(Reponse);
             }
 
 
-            return Ok(Result);
+            return Ok(Reponse);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Login([FromBody] LoginModel loginModel)
+        public async Task<ActionResult<IResponse<AuthModel>>> Login([FromBody] LoginModel loginModel)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var Result = await this._authService.Login(loginModel);
-            if (!Result.IsAuthenticated)
+            var Reponse = await this._authService.Login(loginModel);
+            if (!Reponse.IsSuccess)
             {
-                return BadRequest(Result.Message);
+                return BadRequest(Reponse);
             }
 
 
-            return Ok(Result);
+            return Ok(Reponse);
         }
     }
 }
