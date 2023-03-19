@@ -5,4 +5,5 @@
 [Front-End](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Drag-And-Drop-Ui/tree/master/FrontEnd)
 
 ## TEC
-[![.NET Foundation](https://img.shields.io/badge/.NET%20Foundation-blueviolet.svg)](https://www.dotnetfoundation.org/)
+[![.NET Foundation](https://img.shields.io/badge/.NET%20Foundation-blueviolet.svg)](https://www.dotnetfoundation.org/) [![Angualr 14](https://img.shields.io/badge/.NET%20Foundation-blueviolet.svg)](https://www.dotnetfoundation.org/)
+
