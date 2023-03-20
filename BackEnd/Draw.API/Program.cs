@@ -45,6 +45,9 @@ builder.Services.AddScoped<DiagramService, DiagramService>();
 //Create Map Values From Between JWT Session With JWT CLass
 builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 
+//Add Auto Mapper
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
 //Add JWT Service And Init Confgrations
 builder.Services.AddAuthentication(options =>
 {

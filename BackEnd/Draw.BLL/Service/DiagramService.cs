@@ -1,4 +1,5 @@
-﻿using Draw.BLL.Interface;
+﻿using AutoMapper;
+using Draw.BLL.Interface;
 using Draw.BLL.Model;
 using Draw.Core.Helpers.Consts;
 using Draw.Core.Model;
@@ -16,9 +17,11 @@ namespace Draw.BLL.Service
     {
 
         private readonly IUnitOfWork _unitOfWork;
-        public DiagramService(IUnitOfWork unitOfWork)
+        private readonly IMapper _mapper;
+        public DiagramService(IUnitOfWork unitOfWork,IMapper mapper)
         {
             this._unitOfWork = unitOfWork;
+            this._mapper=mapper;    
         }
 
         /// <summary>
@@ -30,12 +33,8 @@ namespace Draw.BLL.Service
         {
             try
             {
-                var newModel = new Diagram
-                {
-                    Tag = model.Tag,
-                    Name = model.Name,
-                    FKUser_Id = userId
-                };
+                var newModel = this._mapper.Map<Diagram>(model);
+                newModel.FKUser_Id = userId;
                 this._unitOfWork.Diagrams.Add(newModel);
                 if (!this._unitOfWork.Complate().Result) 
                 return Reponse<DiagramModel>.Error("Can no create");
@@ -64,13 +63,9 @@ namespace Draw.BLL.Service
                     return Reponse<DiagramModel>.Error("You have not authorize");
                 }
 
-                var newModel = new Diagram
-                {
-                    Id=model.Id.Value,
-                    Tag = model.Tag,
-                    Name = model.Name,
-                    FKUser_Id = userId
-                };
+                var newModel = this._mapper.Map<Diagram>(model);
+                newModel.FKUser_Id = userId;
+ 
                 this._unitOfWork.Diagrams.Update(newModel);
                 if (!this._unitOfWork.Complate().Result)
                     return Reponse<DiagramModel>.Error("Can no create");
