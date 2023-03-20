@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { NavComponent } from './components/nav/nav.component';
 import { AlertService } from './services/alert.service';
-import { MenuService } from './services/meue.service';
+import { MenuService } from './services/menu.service';
 import { StorageService } from './services/storage.service';
 import { UtilsService } from './services/utils.service';
 

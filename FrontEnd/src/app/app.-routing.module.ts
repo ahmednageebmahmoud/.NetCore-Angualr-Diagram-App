@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AnonymouslyCanActive } from './utils/services/guard/anonymously-canactive';
+import { GurdCanActive } from './utils/services/guard/gurd-canactive';
 
 const routes: Routes = [
   {
@@ -17,7 +18,7 @@ const routes: Routes = [
   {
     path: 'diagram',
     loadChildren: () => import('./diagram/diagram.module').then(m => m.DiagramModule),
-    canActivate: [AnonymouslyCanActive] // TOODO Reaplce Can Active With AnonymouslyCanActive
+    canActivate: [GurdCanActive] 
   }
 ]
 

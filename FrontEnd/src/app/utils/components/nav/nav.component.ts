@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IMenu } from '../../interfaces/menu.interface';
-import { MenuService } from '../../services/meue.service';
+import { MenuService } from '../../services/menu.service';
 import { UtilsService } from '../../services/utils.service';
 
 @Component({

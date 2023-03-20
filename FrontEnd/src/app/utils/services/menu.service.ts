@@ -12,12 +12,12 @@ export class MenuService {
     },
     {
       name: "Diagrams",
-      isAnonymous: true,
+      isAnonymous: false,
       url: '/diagram/list'
     },
     {
       name: "Create Diagram",
-      isAnonymous: true,
+      isAnonymous: false,
       url: '/diagram/create'
     },
     

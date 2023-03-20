@@ -17,7 +17,7 @@ export class LogInComponent implements OnInit {
     password: new FormControl(null, Validators.required)
   })
   isErrorSubmited = false;
-
+  isLoading=false;
 
   constructor(private utilsService: UtilsService, private userService: UserService, private router: Router) {
 
@@ -33,7 +33,8 @@ export class LogInComponent implements OnInit {
       this.utilsService.alert.errorMessage(null, "Enter Login Information");
       return;
     }
-
+    this.loginForm.disable();
+    this.isLoading=true;
     this.userService.login<IAuth>(this.loginForm.value)
       .then(res => {
         this.utilsService.alert.message(res);
@@ -42,11 +43,13 @@ export class LogInComponent implements OnInit {
           this.utilsService.storage.accessToken = res.result.token;
           //Reload user information and emit an event to update the user state.
           this.utilsService.loggedUser.loadUserInformation();
-  //Rout To Home Page
+          //Route To Home Page
           this.router.navigateByUrl('/');
         }
       }).catch(error => this.utilsService.alert.canRequestError(error))
-
+      .finally(() => {
+        this.loginForm.enable();
+    this.isLoading=false;
+  })
   }
-
 }
