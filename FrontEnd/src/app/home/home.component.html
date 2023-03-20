@@ -1,4 +1,4 @@
-<ng-container *ngIf="utilsService.loggedUser.isLoggedIn; then home; else userName">
+<ng-container *ngIf="utilsService.loggedUser.isLoggedIn; then userName ; else home ">
 </ng-container>
 
 <ng-template #home>

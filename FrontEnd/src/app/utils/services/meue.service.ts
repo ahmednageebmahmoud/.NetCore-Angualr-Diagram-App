@@ -11,15 +11,16 @@ export class MenuService {
       url: '/user/log-in'
     },
     {
-      name: "Digrams",
+      name: "Diagrams",
       isAnonymous: true,
-      url: '/digram/list'
+      url: '/diagram/list'
     },
     {
-      name: "Create Digram",
+      name: "Create Diagram",
       isAnonymous: true,
-      url: '/digram/create'
+      url: '/diagram/create'
     },
+    
     {
       name: "Log Out",
       isAnonymous: false,

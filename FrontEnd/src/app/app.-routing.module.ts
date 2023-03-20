@@ -15,8 +15,8 @@ const routes: Routes = [
     loadChildren: () => import('./user/user.module').then(m => m.UserModule)
   },
   {
-    path: 'digram',
-    loadChildren: () => import('./digram/digram.module').then(m => m.DigramModule),
+    path: 'diagram',
+    loadChildren: () => import('./diagram/diagram.module').then(m => m.DiagramModule),
     canActivate: [AnonymouslyCanActive] // TOODO Reaplce Can Active With AnonymouslyCanActive
   }
 ]

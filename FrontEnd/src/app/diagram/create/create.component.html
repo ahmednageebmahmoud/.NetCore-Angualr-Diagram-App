@@ -1,0 +1,31 @@
+<div class="pt-5">
+  <div class="card">
+    <h5 class="card-header">Create Diagram</h5>
+    <div class="card-body">
+      <h5 class="card-title text-center">Enter your diagrams information</h5>
+      <form [formGroup]="createForm" (submit)="create()">
+        <div class="row ">
+          <!--Name-->
+          <div class="my-1 form-group col-md-6 col-sm-12">
+            <label class="sr-only" for="name">Name</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter Name" formControlName="name">
+            <label class="text-danger" role="alert"
+              *ngIf="isErrorSubmited && createForm.get('name')?.hasError('required')">Tihs Field Is Required</label>
+          </div>
+
+          <!--Tag-->
+          <div class="my-1 form-group col-md-6 col-sm-12">
+            <label class="sr-only" for="password">Tag</label>
+            <input type="text" class="form-control" id="password" placeholder="Enter Tag" formControlName="password">
+            <label class="text-danger" role="alert"
+              *ngIf="isErrorSubmited && createForm.get('password')?.hasError('required')">Tihs Field Is Required</label>
+          </div>
+
+          <div class="my-1  col-sm-12  ">
+            <button type="submit" class="btn btn-primary w-100">Create</button>
+          </div>
+        </div>
+      </form>
+
+    </div>
+  </div>

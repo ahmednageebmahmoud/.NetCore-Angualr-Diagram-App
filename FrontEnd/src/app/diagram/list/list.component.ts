@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IDigram } from 'src/app/utils/interfaces/digram.interface';
+import { IDiagram } from 'src/app/utils/interfaces/diagram.interface';
 import { UtilsService } from 'src/app/utils/services/utils.service';
-import { DigramService } from '../digram.service';
-
+import { DiagramService } from '../diagram.service';
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -12,28 +10,35 @@ import { DigramService } from '../digram.service';
 })
 export class ListComponent implements OnInit {
 
-  digrams:IDigram[] =[];
+  diagrams:IDiagram[] =[];
   isLoading = false;
+  isSuccessRequest=false;
 
-  constructor(private utilsService: UtilsService, private digramService: DigramService, private router: Router) {
+  constructor(private utilsService: UtilsService, private diagramsService: DiagramService, private router: Router) {
 
   }
   ngOnInit(): void {
-
+    this.query();
   }
 
-  /** Log In API */
-  logIn() {
+  /** Load Diagrams API */
+  query() {
 this.isLoading=true;
-    this.digramService.list<IDigram[]>()
+this.isSuccessRequest=false;
+
+    this.diagramsService.list<IDiagram[]>()
       .then(res => {
         this.utilsService.alert.message(res);
+this.isSuccessRequest=res.isSuccess;
+
         if (res.isSuccess) {
-          this.digrams=res.result
+          this.diagrams=res.result
         }
       }).catch(error => this.utilsService.alert.canRequestError(error))
       .finally(()=>{
-this.isLoading=true;
+this.isLoading=false;
+this.isSuccessRequest=false;
+
       })
 
   }

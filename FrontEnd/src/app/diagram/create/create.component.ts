@@ -3,7 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IAuth } from 'src/app/utils/interfaces/user.interface';
 import { UtilsService } from 'src/app/utils/services/utils.service';
-import { DigramService } from '../digram.service';
+import { DiagramService } from '../diagram.service';
 
 @Component({
   selector: 'app-create',
@@ -13,32 +13,32 @@ import { DigramService } from '../digram.service';
 export class CreateComponent implements OnInit {
 
   createForm = new FormGroup({
-    userName: new FormControl(null, Validators.required),
-    password: new FormControl(null, Validators.required)
+    name: new FormControl(null, Validators.required),
+    tag: new FormControl(null, Validators.required)
   })
   isErrorSubmited = false;
 
 
-  constructor(private utilsService: UtilsService, private digramService: DigramService, private router: Router) {
+  constructor(private utilsService: UtilsService, private diagramsService: DiagramService, private router: Router) {
   }
 
   ngOnInit(): void {
   }
 
-  /** Log In API */
-  logIn() {
+  /** Create API */
+  create() {
     if (this.createForm.invalid) {
       this.isErrorSubmited = true;
-      this.utilsService.alert.errorMessage(null, "Enter Digram Information");
+      this.utilsService.alert.errorMessage(null, "Enter Diagram Information");
       return;
     }
 
-    this.digramService.create<IAuth>(this.createForm.value)
+    this.diagramsService.create<IAuth>(this.createForm.value)
       .then(res => {
         this.utilsService.alert.message(res);
         if (res.isSuccess) {
         //Rout To List Page
-          this.router.navigateByUrl('/digram/list');
+          this.router.navigateByUrl('/diagrams/list');
         }
       }).catch(error => this.utilsService.alert.canRequestError(error))
 

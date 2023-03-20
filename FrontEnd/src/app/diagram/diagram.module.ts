@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { UtilsModule } from '../utils/utils.module';
 import { CreateComponent } from './create/create.component';
-import { DigramRoutingModule } from './digram-routing.module';
-import { DigramService } from './digram.service';
+import { DiagramRoutingModule } from './diagram-routing.module';
+import { DiagramService } from './diagram.service';
 import { ListComponent } from './list/list.component';
 
 
 @NgModule({
-  imports: [DigramRoutingModule,UtilsModule],
+  imports: [DiagramRoutingModule,UtilsModule],
   exports: [],
   declarations: [CreateComponent,ListComponent],
-  providers: [DigramService],
+  providers: [DiagramService],
 })
-export class DigramModule { }
+export class DiagramModule { }

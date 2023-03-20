@@ -21,4 +21,4 @@ import { ListComponent } from './list/list.component';
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class DigramRoutingModule { }
+export class DiagramRoutingModule { }
