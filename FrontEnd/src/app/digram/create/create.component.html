@@ -1,0 +1,29 @@
+<h1>Digram/Create</h1>
+<div class="d-flex justify-content-center pt-5">
+  <form [formGroup]="createForm" (submit)="logIn()">
+    <div class="form-row ">
+      <!--UserName-->
+      <div class="my-1 form-group">
+        <label class="sr-only" for="userName">User Name</label>
+        <input type="text" class="form-control" id="userName" placeholder="Enter User Name" formControlName="userName">
+          <label class="text-danger" role="alert"
+          *ngIf="isErrorSubmited && createForm.get('userName')?.hasError('required')"
+          >Tihs Field Is Required</label>
+      </div>
+
+      <!--Password-->
+      <div class="my-1">
+        <label class="sr-only" for="password">Password</label>
+        <input type="password" class="form-control" id="password" placeholder="Enter Password" formControlName="password">
+        <label class="text-danger" role="alert"
+        *ngIf="isErrorSubmited && createForm.get('password')?.hasError('required')"
+        >Tihs Field Is Required</label>
+      </div>
+
+      <div class="my-1 ">
+        <button type="submit" class="btn btn-primary w-100">LogIn</button>
+      </div>
+    </div>
+  </form>
+
+</div>

@@ -12,8 +12,7 @@ export class UtilsService {
    * @param alert Alert Service
    */
   constructor(
-    private http: HttpClient,
-    public loggedUser: LoggedUserService,
+     public loggedUser: LoggedUserService,
     public alert: AlertService,
     public storage: StorageService) { }
 
