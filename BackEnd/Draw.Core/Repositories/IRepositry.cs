@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,7 +14,28 @@ namespace Draw.Core.Repositories
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        T Add(T entity);
+        void Add(T entity);
+
+        /// <summary>
+        /// Update Item In DataBsae
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void Update(T entity);
+
+        /// <summary>
+        /// Delete Item From DataBsae By Entity
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void Remove(T entity);
+
+        /// <summary>
+        /// Delete Item From DataBsae By Filter
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        void Remove(Expression<Func<T, bool>> identity);
 
         /// <summary>
         /// Find Item By Id
@@ -21,7 +43,5 @@ namespace Draw.Core.Repositories
         /// <param name="entity"></param>
         /// <returns></returns>
         T FindById(object id);
- 
-
     }
 }

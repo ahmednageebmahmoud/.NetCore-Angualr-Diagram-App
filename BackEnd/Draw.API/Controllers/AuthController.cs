@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Draw.API.Controllers
 {
-    [EnableCors()]
+  //  [EnableCors()]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

@@ -38,7 +38,7 @@ export class CreateComponent implements OnInit {
         this.utilsService.alert.message(res);
         if (res.isSuccess) {
         //Rout To List Page
-          this.router.navigateByUrl('/diagrams/list');
+          this.router.navigateByUrl('/diagram/list');
         }
       }).catch(error => this.utilsService.alert.canRequestError(error))
 

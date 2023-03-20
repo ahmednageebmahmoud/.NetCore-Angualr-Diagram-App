@@ -39,7 +39,7 @@ namespace Draw.BLL.Service
                 new Claim(JwtRegisteredClaimNames.Sub,user.UserName),
                 new Claim(JwtRegisteredClaimNames.Email,user.Email),
                 new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-            new Claim("uid",user.Id)
+            new Claim("uid",user.Id)// This Value Will Read In Action To Define Current User Like User.FindFirst("uid").Value
             }.Union(UserClimes);
 
             var SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._jwt.Key));

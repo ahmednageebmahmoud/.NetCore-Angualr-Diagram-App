@@ -10,12 +10,12 @@ export class DiagramService {
   constructor(private http: HttpClient) { }
 
   create<T>(info:any): Promise<IResponse<T>> {
-    return _(this.http.post(`api/diagram/create`,info)) as Promise<IResponse<T>>
+    return _(this.http.post(`api/Diagram/create`,info)) as Promise<IResponse<T>>
   }
 
   
   list<T>(): Promise<IResponse<T>> {
-    return _(this.http.get(`api/diagram/list`)) as Promise<IResponse<T>>
+    return _(this.http.get(`api/Diagram/list`)) as Promise<IResponse<T>>
   }
   
 

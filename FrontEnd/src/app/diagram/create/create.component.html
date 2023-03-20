@@ -15,10 +15,10 @@
 
           <!--Tag-->
           <div class="my-1 form-group col-md-6 col-sm-12">
-            <label class="sr-only" for="password">Tag</label>
-            <input type="text" class="form-control" id="password" placeholder="Enter Tag" formControlName="password">
+            <label class="sr-only" for="tag">Tag</label>
+            <input type="text" class="form-control" id="tag" placeholder="Enter Tag" formControlName="tag">
             <label class="text-danger" role="alert"
-              *ngIf="isErrorSubmited && createForm.get('password')?.hasError('required')">Tihs Field Is Required</label>
+              *ngIf="isErrorSubmited && createForm.get('tag')?.hasError('required')">Tihs Field Is Required</label>
           </div>
 
           <div class="my-1  col-sm-12  ">

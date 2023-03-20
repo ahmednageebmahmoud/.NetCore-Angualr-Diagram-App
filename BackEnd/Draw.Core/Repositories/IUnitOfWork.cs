@@ -12,9 +12,14 @@ namespace Draw.Core.Repositories
         IRepositry<ApplicationUser> Users { get; }
 
         /// <summary>
+        /// Diagram Repositry
+        /// </summary>
+        IRepositry<Diagram> Diagrams { get; }
+
+        /// <summary>
         /// Save Change And Return Number Of Row Effected
         /// </summary>
         /// <returns></returns>
-        int Complate();
+        Task<bool> Complate();
     }
 }

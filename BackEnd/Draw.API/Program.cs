@@ -39,12 +39,16 @@ builder.Services.AddScoped<IJWTService, JWTService>();
 ///Add Auth Service As Scoped
 builder.Services.AddScoped<IAuthService, AuthService>();
 
+///Add  Diagram Service As Scoped
+builder.Services.AddScoped<DiagramService, DiagramService>();
+
 //Create Map Values From Between JWT Session With JWT CLass
 builder.Services.Configure<JWT>(builder.Configuration.GetSection("JWT"));
 
 //Add JWT Service And Init Confgrations
 builder.Services.AddAuthentication(options =>
 {
+    
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
 }).AddJwtBearer(o =>
@@ -61,6 +65,7 @@ builder.Services.AddAuthentication(options =>
         ValidAudience = builder.Configuration["JWT:Audince"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["JWT:Key"]))
     };
+
 });
 
 var app = builder.Build();
@@ -76,11 +81,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-
-
-
 app.UseHttpsRedirection();
-
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
