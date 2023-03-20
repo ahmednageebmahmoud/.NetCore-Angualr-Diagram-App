@@ -1,5 +1,4 @@
-﻿using Draw.BLL.Interface;
-using Draw.BLL.Model;
+﻿using Draw.BLL.Helpers.Reponse;
 using Draw.Core.Helpers.Consts;
 using Draw.Core.Model;
 using Microsoft.AspNetCore.Identity;
@@ -9,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Service
+namespace Draw.BLL.Helpers.Auth
 {
-    public class AuthService:IAuthService
+    public class AuthService : IAuthService
     {
         private readonly UserManager<ApplicationUser> _userManger;
         private readonly IJWTService _jwtService;
@@ -25,12 +24,12 @@ namespace Draw.BLL.Service
         public async Task<IResponse<AuthModel>> Register(RegisterModel register)
         {
             //Check From Email
-            if (await this._userManger.FindByEmailAsync(register.Email) is not null)
+            if (await _userManger.FindByEmailAsync(register.Email) is not null)
                 return Reponse<AuthModel>.Error("Email Is Alredy Used");
 
             //Check From UserName
-            if (await this._userManger.FindByNameAsync(register.UserName) is not null)
-                return Reponse<AuthModel>.Error( "UserName Is Alredy Used");
+            if (await _userManger.FindByNameAsync(register.UserName) is not null)
+                return Reponse<AuthModel>.Error("UserName Is Alredy Used");
 
             var User = new ApplicationUser
             {
@@ -39,19 +38,19 @@ namespace Draw.BLL.Service
             };
 
             //Create User
-            var Result = await this._userManger.CreateAsync(User, register.Password);
+            var Result = await _userManger.CreateAsync(User, register.Password);
 
             if (!Result.Succeeded)
-                return Reponse<AuthModel>.Error(String.Join("m", Result.Errors.Select(c => c.Description).ToList()));
+                return Reponse<AuthModel>.Error(string.Join("m", Result.Errors.Select(c => c.Description).ToList()));
 
             //Add User Role
-            Result = await this._userManger.AddToRoleAsync(User, RoleConst.User);
+            Result = await _userManger.AddToRoleAsync(User, RoleConst.User);
             if (!Result.Succeeded)
-                return Reponse<AuthModel>.Error(String.Join("m", Result.Errors.Select(c => c.Description).ToList()));
+                return Reponse<AuthModel>.Error(string.Join("m", Result.Errors.Select(c => c.Description).ToList()));
 
             //Create JWT Token
-            var Token = await this._jwtService.Create(User);
-            return Reponse<AuthModel>.Success ("Register Successfully", new AuthModel
+            var Token = await _jwtService.Create(User);
+            return Reponse<AuthModel>.Success("Register Successfully", new AuthModel
             {
                 Roles = new List<string> { RoleConst.User },
                 Token = Token
@@ -61,14 +60,14 @@ namespace Draw.BLL.Service
         public async Task<IResponse<AuthModel>> Login(LoginModel login)
         {
 
-            var User = await this._userManger.FindByNameAsync(login.UserName);
+            var User = await _userManger.FindByNameAsync(login.UserName);
 
             //Check From UserName And Password
-            if (User is null || !(await _userManger.CheckPasswordAsync(User, login.Password)))
+            if (User is null || !await _userManger.CheckPasswordAsync(User, login.Password))
                 return Reponse<AuthModel>.Error("User Name Or Password Is Incorrect");
 
             //Create JWT Token
-            var Token = await this._jwtService.Create(User);
+            var Token = await _jwtService.Create(User);
             return Reponse<AuthModel>.Success("Login Successfully", new AuthModel
             {
                 Roles = new List<string> { RoleConst.User },

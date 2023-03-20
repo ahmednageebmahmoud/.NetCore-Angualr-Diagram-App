@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Model
+namespace Draw.BLL.Helpers.Auth
 {
     public class JWT
     {

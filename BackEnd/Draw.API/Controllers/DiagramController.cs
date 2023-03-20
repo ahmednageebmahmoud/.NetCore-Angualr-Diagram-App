@@ -1,6 +1,5 @@
-﻿using Draw.BLL.Interface;
-using Draw.BLL.Model;
-using Draw.BLL.Service;
+﻿using Draw.BLL.Helpers.Diagram;
+using Draw.BLL.Helpers.Reponse;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -39,6 +38,23 @@ namespace Draw.API.Controllers
 
         [HttpPut("update")]
         public async Task<ActionResult<IResponse<DiagramModel>>> Edit([FromBody] DiagramModel model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var Reponse = this._diagramService.Update(model, User.FindFirst("uid").Value);
+            if (!Reponse.IsSuccess)
+            {
+                return BadRequest(Reponse);
+            }
+            return Ok(Reponse);
+
+        }
+
+        [HttpPut("list")]
+        public async Task<ActionResult<IResponse<List<DiagramDTO>>>> List([FromBody] DiagramModel model)
         {
 
             if (!ModelState.IsValid)

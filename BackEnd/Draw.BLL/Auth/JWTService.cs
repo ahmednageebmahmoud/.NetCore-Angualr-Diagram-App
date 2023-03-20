@@ -9,12 +9,10 @@ using System.Linq;
 using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
-using Draw.BLL.Model;
-using Draw.BLL.Interface;
 
-namespace Draw.BLL.Service
+namespace Draw.BLL.Helpers.Auth
 {
-    public class JWTService:IJWTService
+    public class JWTService : IJWTService
     {
         private readonly UserManager<ApplicationUser> _userManger;
         private readonly JWT _jwt;
@@ -42,13 +40,13 @@ namespace Draw.BLL.Service
             new Claim("uid",user.Id)// This Value Will Read In Action To Define Current User Like User.FindFirst("uid").Value
             }.Union(UserClimes);
 
-            var SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(this._jwt.Key));
+            var SymmetricSecurityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwt.Key));
             var SigningCredentials = new SigningCredentials(SymmetricSecurityKey, SecurityAlgorithms.HmacSha256);
             var Token = new JwtSecurityToken(
-                issuer: this._jwt.Issure,
-                audience: this._jwt.Audince,
+                issuer: _jwt.Issure,
+                audience: _jwt.Audince,
                 claims: Clamis,
-                expires: DateTime.Now.AddDays(this._jwt.DurationDays),
+                expires: DateTime.Now.AddDays(_jwt.DurationDays),
                 signingCredentials: SigningCredentials
             );
             return new JwtSecurityTokenHandler().WriteToken(Token);

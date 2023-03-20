@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Interface
+namespace Draw.BLL.Helpers.Auth
 {
     public interface IJWTService
     {

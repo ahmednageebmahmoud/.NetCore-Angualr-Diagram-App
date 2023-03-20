@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Interface
+namespace Draw.BLL.Helpers.Reponse
 {
     public interface IResponse<T>
     {
-          bool IsSuccess { get;   }
-          string Message { get;   }
-          T Result { get;   }
+        bool IsSuccess { get; }
+        string Message { get; }
+        T Result { get; }
 
 
-        
+
     }
 }

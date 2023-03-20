@@ -5,12 +5,11 @@ using Draw.Core.Repositories;
 using Draw.EF;
 using Draw.EF.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Draw.BLL.Interface;
-using Draw.BLL.Service;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using Draw.BLL.Model;
 using Microsoft.Extensions.Options;
+using Draw.BLL.Helpers.Diagram;
+using Draw.BLL.Helpers.Auth;
 
 var builder = WebApplication.CreateBuilder(args);
 

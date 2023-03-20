@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
-using Draw.BLL.Interface;
-using Draw.BLL.Model;
+using Draw.BLL.Helpers.Reponse;
 using Draw.Core.Helpers.Consts;
 using Draw.Core.Model;
 using Draw.Core.Repositories;
@@ -11,17 +10,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Service
+namespace Draw.BLL.Helpers.Diagram
 {
-    public class DiagramService: IService
+    public class DiagramService : IService
     {
 
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        public DiagramService(IUnitOfWork unitOfWork,IMapper mapper)
+        public DiagramService(IUnitOfWork unitOfWork, IMapper mapper)
         {
-            this._unitOfWork = unitOfWork;
-            this._mapper=mapper;    
+            _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         /// <summary>
@@ -33,11 +32,11 @@ namespace Draw.BLL.Service
         {
             try
             {
-                var newModel = this._mapper.Map<Diagram>(model);
+                var newModel = _mapper.Map<Diagram>(model);
                 newModel.FKUser_Id = userId;
-                this._unitOfWork.Diagrams.Add(newModel);
-                if (!this._unitOfWork.Complate().Result) 
-                return Reponse<DiagramModel>.Error("Can no create");
+                _unitOfWork.Diagrams.Add(newModel);
+                if (!_unitOfWork.Complate().Result)
+                    return Reponse<DiagramModel>.Error("Can no create");
 
                 model.Id = newModel.Id;
                 return Reponse<DiagramModel>.Success("Created Successfully", model);
@@ -57,17 +56,17 @@ namespace Draw.BLL.Service
         {
             try
             {
-                var Diagram = this._unitOfWork.Diagrams.FindById(model.Id.Value);
+                var Diagram = _unitOfWork.Diagrams.FindById(model.Id.Value);
                 if (Diagram.FKUser_Id != userId)
                 {
                     return Reponse<DiagramModel>.Error("You have not authorize");
                 }
 
-                var newModel = this._mapper.Map<Diagram>(model);
+                var newModel = _mapper.Map<Diagram>(model);
                 newModel.FKUser_Id = userId;
- 
-                this._unitOfWork.Diagrams.Update(newModel);
-                if (!this._unitOfWork.Complate().Result)
+
+                _unitOfWork.Diagrams.Update(newModel);
+                if (!_unitOfWork.Complate().Result)
                     return Reponse<DiagramModel>.Error("Can no create");
 
                 model.Id = newModel.Id;

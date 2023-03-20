@@ -1,12 +1,12 @@
-﻿using Draw.BLL.Interface;
-using Draw.Core.Model;
+﻿using Draw.BLL.Helpers.Auth;
+using Draw.BLL.Helpers.Reponse;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Draw.API.Controllers
 {
-  //  [EnableCors()]
+    //  [EnableCors()]
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase

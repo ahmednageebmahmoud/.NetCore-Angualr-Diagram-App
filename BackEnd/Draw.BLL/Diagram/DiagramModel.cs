@@ -5,13 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.Core.Model
+namespace Draw.BLL.Helpers.Diagram
 {
-    public class LoginModel
+    public class DiagramModel
     {
+        public int? Id { get; set; }
         [Required]
-        public string UserName { get; set; }
+        public string Tag { get; set; }
         [Required]
-        public string Password { get; set; }
+        public string Name { get; set; }
+
     }
 }

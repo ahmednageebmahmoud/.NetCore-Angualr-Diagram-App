@@ -5,15 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.Core.Model
+namespace Draw.BLL.Helpers.Auth
 {
-    public class RegisterModel
+    public class LoginModel
     {
         [Required]
         public string UserName { get; set; }
-        [Required]
-        [EmailAddress]
-        public string Email { get; set; }
         [Required]
         public string Password { get; set; }
     }
