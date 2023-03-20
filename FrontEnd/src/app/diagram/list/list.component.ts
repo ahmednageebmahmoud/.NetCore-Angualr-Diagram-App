@@ -10,9 +10,9 @@ import { DiagramService } from '../diagram.service';
 })
 export class ListComponent implements OnInit {
 
-  diagrams:IDiagram[] =[];
+  diagrams: IDiagram[] = [];
   isLoading = false;
-  isSuccessRequest=false;
+  isSuccessRequest = false;
 
   constructor(private utilsService: UtilsService, private diagramsService: DiagramService, private router: Router) {
 
@@ -23,24 +23,49 @@ export class ListComponent implements OnInit {
 
   /** Load Diagrams API */
   query() {
-this.isLoading=true;
-this.isSuccessRequest=false;
+    this.isLoading = true;
+    this.isSuccessRequest = false;
 
     this.diagramsService.list<IDiagram[]>()
       .then(res => {
-        this.utilsService.alert.message(res);
-this.isSuccessRequest=res.isSuccess;
+        this.isSuccessRequest = res.isSuccess;
 
         if (res.isSuccess) {
-          this.diagrams=res.result
-        }
-      }).catch(error => this.utilsService.alert.canRequestError(error))
-      .finally(()=>{
-this.isLoading=false;
-this.isSuccessRequest=false;
+          this.diagrams = res.result
+        } else {
 
+          this.utilsService.alert.message(res);
+        }
+      }).catch(error => {
+        this.isSuccessRequest = false;
+
+        this.utilsService.alert.canRequestError(error)
+      }
+      )
+      .finally(() => {
+        this.isLoading = false;
+
+      })
+  }
+
+
+  
+  /** Delete Diagram API */
+  delete(diagram:IDiagram) {
+     diagram.isDeleting = true;
+    this.diagramsService.delete(diagram.id)
+      .then(res => {
+        this.utilsService.alert.message(res);
+        if (res.isSuccess) {
+          this.diagrams.splice(this.diagrams.findIndex(c=> c.id==diagram.id),1);
+        } 
+      }).catch(error => {
+        this.utilsService.alert.canRequestError(error)
+      }
+      )
+      .finally(() => {
+        diagram.isDeleting = false;
       })
 
   }
-
 }

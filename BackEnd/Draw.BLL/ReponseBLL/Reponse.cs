@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Helpers.Reponse
+namespace Draw.BLL.ReponseBLL
 {
     public class Reponse<T> : IResponse<T>
     {

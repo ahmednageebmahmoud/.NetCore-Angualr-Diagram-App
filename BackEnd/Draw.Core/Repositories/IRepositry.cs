@@ -43,5 +43,21 @@ namespace Draw.Core.Repositories
         /// <param name="entity"></param>
         /// <returns></returns>
         T FindById(object id);
+
+        /// <summary>
+        /// Get All Items Matched
+        /// </summary>
+        /// <param name="identity"></param>
+        /// <returns></returns>
+   Task<    IEnumerable<T>>  GetAll(Expression<Func<T, bool>> identity);
+
+
+        /// <summary>
+        /// Get All Items Matched And Order
+        /// </summary>
+        /// <param name="identity"></param>
+        /// <returns></returns>
+        Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> identity, Expression<Func<T, object>> order);
+
     }
 }

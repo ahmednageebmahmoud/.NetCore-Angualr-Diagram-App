@@ -30,6 +30,20 @@ namespace Draw.EF.Repositories
             this._entity.RemoveRange(Entities);
         }
 
+        public async Task< IEnumerable<T>> GetAll(Expression<Func<T, bool>> identity)
+        {
+            return await this._entity.Where(identity).ToListAsync();
 
+            
+
+        }
+
+        public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> identity, Expression<Func<T, object>> order)
+        {
+            return await this._entity.Where(identity).OrderByDescending(order).ToListAsync();
+
+
+
+        }
     }
 }

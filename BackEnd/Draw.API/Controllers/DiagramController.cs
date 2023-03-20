@@ -1,5 +1,5 @@
-﻿using Draw.BLL.Helpers.Diagram;
-using Draw.BLL.Helpers.Reponse;
+﻿using Draw.BLL.DiagramBLL;
+using Draw.BLL.ReponseBLL;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
@@ -19,7 +19,7 @@ namespace Draw.API.Controllers
         }
 
 
-        [HttpPost("create")]
+        [HttpPost()]
         public async Task<ActionResult<IResponse<DiagramModel>>> Create([FromBody] DiagramModel model)
         {
             if (!ModelState.IsValid)
@@ -36,7 +36,7 @@ namespace Draw.API.Controllers
             return Ok(Reponse);
         }
 
-        [HttpPut("update")]
+        [HttpPut()]
         public async Task<ActionResult<IResponse<DiagramModel>>> Edit([FromBody] DiagramModel model)
         {
 
@@ -53,21 +53,29 @@ namespace Draw.API.Controllers
 
         }
 
-        [HttpPut("list")]
-        public async Task<ActionResult<IResponse<List<DiagramDTO>>>> List([FromBody] DiagramModel model)
+        [HttpDelete()]
+        public async Task<ActionResult<IResponse<DiagramModel>>> Delete([FromQuery]int id)
         {
-
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-            var Reponse = this._diagramService.Update(model, User.FindFirst("uid").Value);
+            var Reponse = this._diagramService.Remove(id, User.FindFirst("uid").Value);
             if (!Reponse.IsSuccess)
             {
                 return BadRequest(Reponse);
             }
             return Ok(Reponse);
 
+        }
+
+
+        [HttpGet("list")]
+        public async Task<ActionResult<IResponse<List<DiagramDTO>>>> List()
+        {
+           
+            var Reponse =await this._diagramService.SelectByUser( User.FindFirst("uid").Value);
+            if (!Reponse.IsSuccess)
+            {
+                return BadRequest(Reponse);
+            }
+            return Ok(Reponse);
         }
 
 

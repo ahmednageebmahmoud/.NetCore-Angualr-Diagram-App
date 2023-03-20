@@ -2,29 +2,32 @@
     <div class="card">
         <h5 class="card-header">Diagrams</h5>
         <div class="card-body">
-            <div class="w-100 text-center" *ngIf="!isLoading&&!diagrams.length&&isSuccessRequest">No Diagrams Found <a routerLink="/diagrams/create">Create New Now</a></div>
+            <div class="w-100 text-center" *ngIf="!isLoading&&!diagrams.length&&isSuccessRequest">No Diagrams Found <a routerLink="/diagram/create">Create New Now</a></div>
             <div class="w-100 text-center" *ngIf="!isLoading&&!diagrams.length&&!isSuccessRequest">Opps, Some Error Has Been  <a href="javascript:void" (click)="query()">Try Again</a></div>
             <div class="w-100 text-center" *ngIf="isLoading">Loading ...</div>
-            <div class="row " *ngIf="isSuccessRequest&&isLoading&&diagrams.length">
-                <table class="table table-striped table-dark">
-                    <thead>
+            <div class="row " *ngIf="isSuccessRequest&&!isLoading&&diagrams.length">
+                <table class="table table-striped ">
+                    <thead class="table-dark">
                       <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Tag</th>
-                        <th scope="col">Actions</th>
+                        <th class="th-10" scope="col">#</th>
+                        <th class="th-40" scope="col">Name</th>
+                        <th class="th-30" scope="col">Tag</th>
+                        <th class="th-20" scope="col">Actions</th>
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let d of diagrams">
-                        <th scope="row" [innerHTML]="d.id"> </th>
-                        <td [innerHTML]="d.name">Mark</td>
-                        <td [innerHTML]="d.tag">Otto</td>
-                        <td>
-                            <button type="button" class="btn btn-primary">Download</button>
-                            <button type="button" class="btn btn-info">Edit</button>
-                            <button type="button" class="btn btn-danger">Delete</button>
-                        </td>
+                      <tr *ngFor="let diadgram of diagrams">
+                        <th scope="row" [innerHTML]="diadgram.id"> </th>
+                        <td [innerHTML]="diadgram.name">Mark</td>
+                        <td [innerHTML]="diadgram.tag">Otto</td>
+                        <td class="d-flex justify-content-around">
+                            <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-primary">Download</button>
+                            <!-- <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-info mr-auto">Edit</button> -->
+                            <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-danger mr-auto" (click)="delete(diadgram)">Delete</button>
+                        <div>
+                          <span *ngIf="diadgram.isDeleting">Deleting ...</span>
+                        </div>
+                          </td>
                       </tr>
                     </tbody>
                   </table>

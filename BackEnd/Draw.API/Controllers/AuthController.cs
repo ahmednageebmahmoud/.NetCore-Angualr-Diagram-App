@@ -1,7 +1,5 @@
-﻿using Draw.BLL.Helpers.Auth;
-using Draw.BLL.Helpers.Reponse;
-using Microsoft.AspNetCore.Cors;
-using Microsoft.AspNetCore.Http;
+﻿using Draw.BLL.AuthBLL;
+using Draw.BLL.ReponseBLL;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Draw.API.Controllers

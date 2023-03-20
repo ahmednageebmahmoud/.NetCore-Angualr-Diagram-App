@@ -1,4 +1,4 @@
-﻿using Draw.BLL.Helpers.Reponse;
+﻿using Draw.BLL.ReponseBLL;
 using Draw.Core.Helpers.Consts;
 using Draw.Core.Model;
 using Microsoft.AspNetCore.Identity;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Helpers.Auth
+namespace Draw.BLL.AuthBLL
 {
     public class AuthService : IAuthService
     {

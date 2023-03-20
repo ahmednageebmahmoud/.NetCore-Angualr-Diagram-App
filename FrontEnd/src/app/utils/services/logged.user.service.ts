@@ -23,7 +23,6 @@ export class LoggedUserService {
    * Reload user information and emit an event to update the user state.
    */
   loadUserInformation() {
-debugger
     let accessToken = this.storage.accessToken;
     if (!accessToken || accessToken == "") {
       this.isLoggedIn = false;

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Helpers.Diagram
+namespace Draw.BLL.DiagramBLL
 {
     public class DiagramModel
     {

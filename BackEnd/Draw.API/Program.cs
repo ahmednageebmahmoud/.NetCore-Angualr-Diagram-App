@@ -8,8 +8,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Options;
-using Draw.BLL.Helpers.Diagram;
-using Draw.BLL.Helpers.Auth;
+using Draw.BLL.AuthBLL;
+using Draw.BLL.DiagramBLL;
 
 var builder = WebApplication.CreateBuilder(args);
 

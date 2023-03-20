@@ -10,7 +10,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.BLL.Helpers.Auth
+namespace Draw.BLL.AuthBLL
 {
     public class JWTService : IJWTService
     {
