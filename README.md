@@ -49,15 +49,16 @@ Pictures
     ![Login Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Login%20Page.jpg?raw=true)
     <br>
 3- Diagram List Page
+<br>
     ![Diagram List Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20List%20Page.jpg?raw=true)
-    <br>
+<br>
 4- Diagram%20Create Page
+<br>
     ![Diagram Create Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Create%20Page.jpg?raw=true)
-    <br>
+<br>
 5- Diagram%20Downlaod%20Page
+<br>
     ![Diagram Downlaod Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Downlaod%20Page.jpg?raw=true)
-    <br>
-
 See also
 --------------------------------------------------------------------------------
 
