@@ -20,7 +20,7 @@ namespace Draw.API.Controllers
 
 
         [HttpPost()]
-        public async Task<ActionResult<IResponse<DiagramModel>>> Create([FromBody] DiagramModel model)
+        public async Task<ActionResult<IResponse<DiagramDTO>>> Create([FromBody] DiagramModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -37,7 +37,7 @@ namespace Draw.API.Controllers
         }
 
         [HttpPut()]
-        public async Task<ActionResult<IResponse<DiagramModel>>> Edit([FromBody] DiagramModel model)
+        public async Task<ActionResult<IResponse<DiagramDTO>>> Edit([FromBody] DiagramModel model)
         {
 
             if (!ModelState.IsValid)
@@ -54,7 +54,7 @@ namespace Draw.API.Controllers
         }
 
         [HttpDelete()]
-        public async Task<ActionResult<IResponse<DiagramModel>>> Delete([FromQuery]int id)
+        public async Task<ActionResult<IResponse<DiagramDTO>>> Delete([FromQuery]int id)
         {
             var Reponse = this._diagramService.Remove(id, User.FindFirst("uid").Value);
             if (!Reponse.IsSuccess)
@@ -66,7 +66,7 @@ namespace Draw.API.Controllers
         }
 
         [HttpGet()]
-        public async Task<ActionResult<IResponse<DiagramModel>>> Get([FromQuery]int id)
+        public async Task<ActionResult<IResponse<DiagramDTO>>> Get([FromQuery]int id)
         {
             var Reponse = this._diagramService.Get(id, User.FindFirst("uid").Value);
             if (!Reponse.IsSuccess)

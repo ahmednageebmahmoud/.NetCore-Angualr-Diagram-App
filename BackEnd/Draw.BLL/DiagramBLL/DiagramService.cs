@@ -31,7 +31,7 @@ namespace Draw.BLL.DiagramBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public IResponse<DiagramModel> Create(DiagramModel model, string userId)
+        public IResponse<DiagramDTO> Create(DiagramModel model, string userId)
         {
             try
             {
@@ -39,14 +39,14 @@ namespace Draw.BLL.DiagramBLL
                 newModel.FKUser_Id = userId;
                 _unitOfWork.Diagrams.Add(newModel);
                 if (!_unitOfWork.Complate().Result)
-                    return Reponse<DiagramModel>.Error("Can no create");
+                    return Reponse<DiagramDTO>.Error("Can no create");
 
                 model.Id = newModel.Id;
-                return Reponse<DiagramModel>.Success("Created Successfully", model);
+                return Reponse<DiagramDTO>.Success("Created Successfully", this._mapper.Map<DiagramDTO>(model));
             }
             catch (Exception ex)
             {
-                return Reponse<DiagramModel>.Error(ex);
+                return Reponse<DiagramDTO>.Error(ex);
             }
         }
 
@@ -55,14 +55,14 @@ namespace Draw.BLL.DiagramBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public IResponse<DiagramModel> Update(DiagramModel model, string userId)
+        public IResponse<DiagramDTO> Update(DiagramModel model, string userId)
         {
             try
             {
-                var Diagram = _unitOfWork.Diagrams.FindById(model.Id.Value);
-                if (Diagram.FKUser_Id != userId)
+                var diagram = _unitOfWork.Diagrams.FindById(model.Id.Value);
+                if (diagram.FKUser_Id != userId)
                 {
-                    return Reponse<DiagramModel>.Error("You have not authorize");
+                    return Reponse<DiagramDTO>.Error("You have not authorize");
                 }
 
                 var newModel = _mapper.Map<Diagram>(model);
@@ -70,14 +70,14 @@ namespace Draw.BLL.DiagramBLL
 
                 _unitOfWork.Diagrams.Update(newModel);
                 if (!_unitOfWork.Complate().Result)
-                    return Reponse<DiagramModel>.Error("Can not update");
+                    return Reponse<DiagramDTO>.Error("Can not update");
 
                 model.Id = newModel.Id;
-                return Reponse<DiagramModel>.Success("Created Successfully", model);
+                return Reponse<DiagramDTO>.Success("Created Successfully", this._mapper.Map<DiagramDTO>(newModel));
             }
             catch (Exception ex)
             {
-                return Reponse<DiagramModel>.Error(ex);
+                return Reponse<DiagramDTO>.Error(ex);
             }
         }
 
@@ -87,29 +87,29 @@ namespace Draw.BLL.DiagramBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public IResponse<DiagramModel> Remove(int id, string userId)
+        public IResponse<DiagramDTO> Remove(int id, string userId)
         {
             try
             {
-                var Diagram = _unitOfWork.Diagrams.FindById(id);
-                if (Diagram is null)
+                var diagram = _unitOfWork.Diagrams.FindById(id);
+                if (diagram is null)
                 {
-                    return Reponse<DiagramModel>.Error("Item is not found");
+                    return Reponse<DiagramDTO>.Error("Item is not found");
                 }
-                if (Diagram.FKUser_Id != userId )
+                if (diagram.FKUser_Id != userId )
                 {
-                    return Reponse<DiagramModel>.Error("You have not authorize");
+                    return Reponse<DiagramDTO>.Error("You have not authorize");
                 }
 
-                _unitOfWork.Diagrams.Remove(Diagram);
+                _unitOfWork.Diagrams.Remove(diagram);
                 if (!_unitOfWork.Complate().Result)
-                    return Reponse<DiagramModel>.Error("Can not delete");
+                    return Reponse<DiagramDTO>.Error("Can not delete");
 
-                return Reponse<DiagramModel>.Success("Deleted Successfully");
+                return Reponse<DiagramDTO>.Success("Deleted Successfully");
             }
             catch (Exception ex)
             {
-                return Reponse<DiagramModel>.Error(ex);
+                return Reponse<DiagramDTO>.Error(ex);
             }
         }
 
@@ -118,25 +118,25 @@ namespace Draw.BLL.DiagramBLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public IResponse<DiagramModel> Get(int id, string userId)
+        public IResponse<DiagramDTO> Get(int id, string userId)
         {
             try
             {
-                var Diagram = _unitOfWork.Diagrams.FindById(id);
-                if (Diagram is null)
+                var diagram = _unitOfWork.Diagrams.FindById(id);
+                if (diagram is null)
                 {
-                    return Reponse<DiagramModel>.Error("Item is not found");
+                    return Reponse<DiagramDTO>.Error("Item is not found");
                 }
-                if (Diagram.FKUser_Id != userId)
+                if (diagram.FKUser_Id != userId)
                 {
-                    return Reponse<DiagramModel>.Error("You have not authorize");
+                    return Reponse<DiagramDTO>.Error("You have not authorize");
                 }
 
-                return Reponse<DiagramModel>.Success(Diagram);
+                return Reponse<DiagramDTO>.Success(this._mapper.Map<DiagramDTO>(diagram));
             }
             catch (Exception ex)
             {
-                return Reponse<DiagramModel>.Error(ex);
+                return Reponse<DiagramDTO>.Error(ex);
             }
         }
 

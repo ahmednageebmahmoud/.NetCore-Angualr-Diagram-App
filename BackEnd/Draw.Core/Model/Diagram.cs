@@ -13,6 +13,7 @@ namespace Draw.Core.Model
         public string Name { get; set; }
 
         public string FKUser_Id { get; set; }
+        public string JsonDiagram { get; set; }
         public ApplicationUser User { get; set; }
     }
 }
