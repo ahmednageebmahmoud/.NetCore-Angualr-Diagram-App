@@ -1,7 +1,7 @@
 ﻿## AutoMapper in Web API with .NET 6
 
 
-# #Install ?
+# # Install ?
 ```
 	NuGet\Install-Package AutoMapper -Version 12.0.1
 	AutoMapper.Extensions.Microsoft.DependencyInjection
