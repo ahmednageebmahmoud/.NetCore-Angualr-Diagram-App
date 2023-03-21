@@ -47,16 +47,16 @@ Pictures
 <br>![EndPoints](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/End%20Points.png?raw=true)
 - Login Page
 <br> ![Login Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Login%20Page.png?raw=true)
-- Diagram Empty List Page
+- Empty List Page
 <br> ![Diagram Empty List Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20List%20Page%20Empty.png?raw=true)
-- Diagram List Page
+- List Page
 <br> ![Diagram List Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20List%20Page.png?raw=true)
-- Diagram Create Page
+- Create Page
 <br> ![Diagram Create Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Create%20Page.png?raw=true)
 - Diagram Downlaod Page
 <br> ![Diagram Downlaod Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Downlaod%20Page.png?raw=true)
 - Downlaod File Example
-<br> ![Downlaod File Example](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%Downlaod%Example.png?raw=true)
+<br> ![Downlaod File Example](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Downlaod%20Example.png?raw=true)
 
 
 
