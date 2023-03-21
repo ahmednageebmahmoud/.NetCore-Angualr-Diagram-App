@@ -29,8 +29,8 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFramework
 //Add DB Context 
 builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PC_Windows")));
 
-//Add UnitOfWork Repositry As Transient
-builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
+//Add UnitOfWork Repositry As Scoped
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 //Add JWT Service As Scoped
 builder.Services.AddScoped<IJWTService, JWTService>();
