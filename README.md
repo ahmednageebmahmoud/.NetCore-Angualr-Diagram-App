@@ -34,7 +34,7 @@ How To Install And Run This Project?
 ```
     > dotnet run 
 ```
-3- (Front-End) In Directoy Location:
+5- (Front-End) In Directoy Location:
 ```
     > npm start
 ```
