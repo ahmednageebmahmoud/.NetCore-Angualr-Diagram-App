@@ -42,23 +42,19 @@ How To Install And Run This Project?
 Pictures
 --------------------------------------------------------------------------------
 1- End Points
-<br>
-    ![EndPoints](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/End%20Points.jpg?raw=true)
+<br>![EndPoints](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/End%20Points.jpg?raw=true)
 <br>
 2- Login Page
-    ![Login Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Login%20Page.jpg?raw=true)
-    <br>
-3- Diagram List Page
+<br> ![Login Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Login%20Page.jpg?raw=true)
 <br>
-    ![Diagram List Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20List%20Page.jpg?raw=true)
+3- Diagram List Page
+<br> ![Diagram List Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20List%20Page.jpg?raw=true)
 <br>
 4- Diagram%20Create Page
-<br>
-    ![Diagram Create Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Create%20Page.jpg?raw=true)
+<br> ![Diagram Create Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Create%20Page.jpg?raw=true)
 <br>
 5- Diagram%20Downlaod%20Page
-<br>
-    ![Diagram Downlaod Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Downlaod%20Page.jpg?raw=true)
+<br> ![Diagram Downlaod Page](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Diagram%20Downlaod%20Page.jpg?raw=true)
 See also
 --------------------------------------------------------------------------------
 
