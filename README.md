@@ -67,5 +67,5 @@ The projects listed below are exemplifying the usage of the Diagram APP
 
 * Entity Freamwork Code First App: [README.md](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/Entity%20Framework)
 * JWT App: [jwt.io](https://jwt.io/) - [README.md](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/LearnNetCoreWepAPI.Authorization)
-* Go JS Flowchart: (gojs.net)[https://gojs.net/latest/samples/flowchart.html]
+* Go JS Flowchart: [gojs.net](https://gojs.net/latest/samples/flowchart.html)
 * Auto Mapper: [README.md]([https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/LearnNetCoreWepAPI.Authorization](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/README.md)) - [automapper.org](https://automapper.org/)
