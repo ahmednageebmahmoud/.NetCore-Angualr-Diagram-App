@@ -23,6 +23,9 @@ namespace Draw.BLL.DiagramBLL
             _mapper = mapper;
         }
 
+
+        
+
         /// <summary>
         /// Create A New Diagram
         /// </summary>
@@ -109,6 +112,34 @@ namespace Draw.BLL.DiagramBLL
                 return Reponse<DiagramModel>.Error(ex);
             }
         }
+
+        /// <summary>
+        /// Get Diagram
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns></returns>
+        public IResponse<DiagramModel> Get(int id, string userId)
+        {
+            try
+            {
+                var Diagram = _unitOfWork.Diagrams.FindById(id);
+                if (Diagram is null)
+                {
+                    return Reponse<DiagramModel>.Error("Item is not found");
+                }
+                if (Diagram.FKUser_Id != userId)
+                {
+                    return Reponse<DiagramModel>.Error("You have not authorize");
+                }
+
+                return Reponse<DiagramModel>.Success(Diagram);
+            }
+            catch (Exception ex)
+            {
+                return Reponse<DiagramModel>.Error(ex);
+            }
+        }
+
 
         /// <summary>
         /// Select All Diagrams Created By User

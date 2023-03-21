@@ -65,6 +65,17 @@ namespace Draw.API.Controllers
 
         }
 
+        [HttpGet()]
+        public async Task<ActionResult<IResponse<DiagramModel>>> Get([FromQuery]int id)
+        {
+            var Reponse = this._diagramService.Get(id, User.FindFirst("uid").Value);
+            if (!Reponse.IsSuccess)
+            {
+                return BadRequest(Reponse);
+            }
+            return Ok(Reponse);
+
+        }
 
         [HttpGet("list")]
         public async Task<ActionResult<IResponse<List<DiagramDTO>>>> List()

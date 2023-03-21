@@ -15,7 +15,7 @@ export class DiagramService {
 
   
   get<T>(id:number): Promise<IResponse<T>> {
-    return _(this.http.get(`api/Diagram/${id}`)) as Promise<IResponse<T>>
+    return _(this.http.get(`api/Diagram?id=${id}`)) as Promise<IResponse<T>>
   }
   
   
