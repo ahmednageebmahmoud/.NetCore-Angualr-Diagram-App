@@ -65,7 +65,7 @@ See also
 
 The projects listed below are exemplifying the usage of the Diagram APP
 
-* Entity Freamwork Code First App - (https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/Entity%20Framework)
+* Entity Freamwork Code First App - [](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/Entity%20Framework)
 * JWT App- (https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/LearnNetCoreWepAPI.Authorization)
 * JWT - https://jwt.io/
 * Go JS Flowchart https://gojs.net/latest/samples/flowchart.html
