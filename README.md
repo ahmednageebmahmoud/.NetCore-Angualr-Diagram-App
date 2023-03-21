@@ -2,7 +2,7 @@
 
 Diagram App
 =====
-Diagram App is a sample application to train on Angular 14 with the.net core 0.6 web API. In the app, I use more important.net framework libraries and apply good design patterns like repository and Unit of Work design patterns.
+Diagram App is a sample application to train on Angular 14 with the.net core 0.6 web API. In the app, I use more important.net framework libraries and apply good design patterns like repository and unit of work design patterns.
 
 I depend on the code-first concept with the SQL Server data base.
 
