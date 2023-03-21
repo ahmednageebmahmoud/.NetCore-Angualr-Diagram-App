@@ -63,7 +63,7 @@ Pictures
 See also
 --------------------------------------------------------------------------------
 
-The projects listed below are exemplifying the usage of the Diagram APP
+The links provided below will assist you in understanding every aspect of this app. 
 
 * Entity Freamwork Code First App: [README.md](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/Entity%20Framework)
 * JWT App: [jwt.io](https://jwt.io/) - [README.md](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/LearnNetCoreWepAPI.Authorization)
