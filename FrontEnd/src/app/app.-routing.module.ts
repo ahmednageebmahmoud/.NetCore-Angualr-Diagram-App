@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: 'diagram',
     loadChildren: () => import('./diagram/diagram.module').then(m => m.DiagramModule),
-    canActivate: [GurdCanActive] 
+  //  canActivate: [GurdCanActive] 
   }
 ]
 
