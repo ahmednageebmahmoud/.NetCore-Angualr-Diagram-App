@@ -7,11 +7,17 @@ using Draw.EF.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
-using Microsoft.Extensions.Options;
 using Draw.BLL.AuthBLL;
 using Draw.BLL.DiagramBLL;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+Log.Logger = new LoggerConfiguration()
+    .CreateLogger();
+
+//User Serilog
+builder.Host.UseSerilog();
 
 //Add Cors And Create Policy For Ng App
 builder.Services.AddCors(c =>c.AddPolicy("ngApp", options =>options.WithOrigins("http://localhost:4200").AllowAnyMethod().AllowAnyHeader()));
@@ -89,4 +95,17 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+try
+{
+
 app.Run();
+    
+}
+catch (Exception ex)
+{
+    Log.Fatal(ex, "I Can't Run The Project");
+}
+finally
+{
+    Log.CloseAndFlush();
+}
