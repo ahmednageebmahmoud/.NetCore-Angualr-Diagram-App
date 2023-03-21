@@ -10,12 +10,6 @@ I depend on the code-first concept with the SQL Server data base.
 [Back-End](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/tree/master/BackEnd) <br>
 [Front-End](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/tree/master/FrontEnd)
 
-
-![GitHub forks](https://img.shields.io/github/forks/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App?style=social)
-![GitHub Repo stars](https://img.shields.io/github/stars/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App?style=social)
-![GitHub User's stars](https://img.shields.io/github/stars/ahmednageebmahmoud?label=Star%20Me&style=social)
-
-
 How To Install And Run This Project?
 -----------------------------------------
 1- Clone This Repository:
