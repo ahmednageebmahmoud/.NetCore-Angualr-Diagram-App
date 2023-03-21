@@ -11,5 +11,7 @@ namespace Draw.BLL.DiagramBLL
         public int Id { get; set; }
         public string Name { get; set; }
         public string Tag { get; set; }
+        public string JsonDiagram { get; set; }
+        
     }
 }

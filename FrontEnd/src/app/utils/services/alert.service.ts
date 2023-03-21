@@ -62,7 +62,7 @@ export class AlertService {
    * @param error
    */
   canRequestError(error: any): void {
-    this.errorMessage(error,error.error.message|| error.message  ||"I Can Not Access To Server");
+    this.errorMessage(error,error?.error?.message|| error?.message  ||"I Can Not Access To Server");
   }
 
 }// End Class

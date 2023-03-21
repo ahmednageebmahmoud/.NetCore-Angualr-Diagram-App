@@ -47,6 +47,11 @@ export class BuilderComponent implements OnInit {
         if (res.isSuccess) {
           this.createForm.controls.tag.setValue(res.result.tag as any);
           this.createForm.controls.name.setValue(res.result.name as any);
+          this.goJsAPP.load(res.result.jsonDiagram);
+
+          //Direct Download
+          if(this.pageState=="downlaod")
+          this.downlaodImage();
         } else {
           this.utilsService.alert.message(res);
         }
@@ -64,7 +69,7 @@ export class BuilderComponent implements OnInit {
 
     this.diagramsService.create({
       ...this.createForm.value,
-      diagram: this.goJsAPP.save()
+      jsonDiagram: this.goJsAPP.save()
     })
       .then(res => {
         this.utilsService.alert.message(res);
@@ -80,7 +85,7 @@ export class BuilderComponent implements OnInit {
    * Downlaod Image
    */
   downlaodImage() {
-    this.goJsAPP.export.image(this.createForm.controls.tag)
+    this.goJsAPP.export.image(this.createForm.controls.tag.value)
   }
 
   /**
@@ -88,6 +93,9 @@ export class BuilderComponent implements OnInit {
    */
   initGOJS() {
     this.goJsAPP = new GoJsAPP('myPaletteDiv', 'myDiagramDiv');
+
+    //Load With Empty Object If We Download Or Edit 
+    if(!this.id)
     this.goJsAPP.load({})
   }
 }

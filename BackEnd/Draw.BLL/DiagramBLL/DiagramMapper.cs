@@ -11,12 +11,17 @@ namespace Draw.BLL.DiagramBLL
             CreateMap<DiagramModel,Draw.Core.Model.Diagram>()
                 .ForMember(dest => dest.Id, op => op.MapFrom(o => o.Id))
                 .ForMember(dest => dest.Name, op => op.MapFrom(o => o.Name))
-                .ForMember(dest => dest.Tag, op => op.MapFrom(o => o.Tag));
+                .ForMember(dest => dest.Tag, op => op.MapFrom(o => o.Tag))
+                .ForMember(dest => dest.JsonDiagram, op => op.MapFrom(o => o.JsonDiagram));
+
+            
 
             CreateMap<Draw.Core.Model.Diagram, DiagramDTO>()
                 .ForMember(dest => dest.Id, op => op.MapFrom(o => o.Id))
                 .ForMember(dest => dest.Name, op => op.MapFrom(o => o.Name))
-                .ForMember(dest => dest.Tag, op => op.MapFrom(o => o.Tag));
+                .ForMember(dest => dest.Tag, op => op.MapFrom(o => o.Tag))
+                .ForMember(dest => dest.JsonDiagram, op => op.MapFrom(o => o.JsonDiagram));
+
         }
     }
 }

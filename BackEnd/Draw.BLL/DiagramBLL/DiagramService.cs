@@ -42,7 +42,7 @@ namespace Draw.BLL.DiagramBLL
                     return Reponse<DiagramDTO>.Error("Can no create");
 
                 model.Id = newModel.Id;
-                return Reponse<DiagramDTO>.Success("Created Successfully", this._mapper.Map<DiagramDTO>(model));
+                return Reponse<DiagramDTO>.Success("Created Successfully", this._mapper.Map<DiagramDTO>(newModel));
             }
             catch (Exception ex)
             {
@@ -51,7 +51,7 @@ namespace Draw.BLL.DiagramBLL
         }
 
         /// <summary>
-        /// Update Diagram
+        /// Update Diagram.
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>

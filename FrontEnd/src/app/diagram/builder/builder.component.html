@@ -34,7 +34,7 @@
           
           <div class="my-1  col-sm-12  row" [ngSwitch]="pageState">
             <button type="submit" class="btn btn-primary col m-1" *ngSwitchCase="'create'">Create</button>
-            <button type="submit" class="btn btn-info col m-1" *ngSwitchCase="'downlaod'">Downlaod Image</button>
+            <button type="button" class="btn btn-info col m-1" *ngSwitchCase="'downlaod'" (click)="downlaodImage()">Downlaod Image</button>
             <!-- <button type="submit" class="btn btn-primary col m-1">Edit</button> -->
           </div>
 

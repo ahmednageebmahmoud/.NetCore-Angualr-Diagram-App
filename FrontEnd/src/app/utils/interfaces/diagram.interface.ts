@@ -4,4 +4,6 @@ export interface IDiagram extends IAction{
     id:number;
     name:string;
     tag:string;
+    jsonDiagram:string;
+    
 }
