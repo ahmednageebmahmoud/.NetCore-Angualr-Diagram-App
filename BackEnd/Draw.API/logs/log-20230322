@@ -1,0 +1,12 @@
+{
+  "Timestamp": "2023-03-22T19:37:34.9570613+02:00",
+  "Level": "Warning",
+  "MessageTemplate": "App Is Started",
+  "Properties": {
+    "MachineName": "DESKTOP-PCI8IKG",
+    "ThreadId": 1,
+    "ProcessId": 26728,
+    "Application": "Draw.Serilog"
+  }
+}
+{"Timestamp":"2023-03-22T19:44:03.0575699+02:00","Level":"Warning","MessageTemplate":"App Is Started","Properties":{"MachineName":"DESKTOP-PCI8IKG","ThreadId":1,"ProcessId":33464,"Application":"Draw.Serilog"}}Serilog{"Timestamp":"2023-03-22T19:46:07.2492948+02:00","Level":"Warning","MessageTemplate":"App Is Started","Properties":{"MachineName":"DESKTOP-PCI8IKG","ThreadId":1,"ProcessId":36880,"Application":"Draw.Serilog"}},{"Timestamp":"2023-03-22T19:48:45.4193197+02:00","Level":"Warning","MessageTemplate":"App Is Started","Properties":{"MachineName":"DESKTOP-PCI8IKG","ThreadId":1,"ProcessId":27644,"Application":"Draw.Serilog"}},{"Timestamp":"2023-03-22T19:53:01.6665895+02:00","Level":"Warning","MessageTemplate":"App Is Started","Properties":{"MachineName":"DESKTOP-PCI8IKG","ThreadId":1,"ProcessId":36768,"Application":"Draw.Serilog"}},
