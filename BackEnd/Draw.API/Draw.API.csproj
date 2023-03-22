@@ -21,6 +21,7 @@
     <PackageReference Include="Serilog.Enrichers.Thread" Version="3.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
+    <PackageReference Include="Serilog.Sinks.MSSqlServer" Version="6.3.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
@@ -28,6 +29,10 @@
     <ProjectReference Include="..\Draw.BLL\Draw.BLL.csproj" />
     <ProjectReference Include="..\Draw.Core\Draw.Core.csproj" />
     <ProjectReference Include="..\Draw.EF\Draw.EF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="logs\" />
   </ItemGroup>
 
 </Project>
