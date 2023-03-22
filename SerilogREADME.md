@@ -14,7 +14,7 @@
 ```
 
 # #level of logs.
-====================================================================================================
+--------------------------------------------------------------------------------
 1-Fatal: Is used for reporting errors that force the application to shut down.
 2- Error: Is only used for logging serious problems that occurred while executing some code in your program.
 3- Warning: Is used when you have to report a non-critical event. This could also be a warning about unusual behavior in the application.
@@ -24,7 +24,7 @@
 
 
 # #Configration
-====================================================================================================
+--------------------------------------------------------------------------------
 You can manage Serilog configuration from appsetting.json or form code, but I prefer to add Console and MSSqlServer to appsetting.json and manage File configuration from code.
 
 Setting
@@ -107,7 +107,7 @@ try
         )
         .CreateLogger();
 
-    //User Serilog
+    //Use Serilog
     builder.Host.UseSerilog();
 }
 catch (Exception ex)
@@ -128,9 +128,9 @@ Pictures
 <br>![File Text Location](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Serilog_File_Text.png?raw=true)
 - File Text Content
 <br> ![File Text Content](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Serilog_File_Text2.png?raw=true)
-- File Json
+- File Json Complect Formatter
 <br> ![File Json](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Serilog_File_Json.png?raw=true)
-- File Json Formatter
+- File Json Sink Formatter
 <br> ![File Json Formatter](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Serilog_File_Json2.png?raw=true)
 - Database
 <br> ![Database](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/Documentation/Serilog_DataBase.png?raw=true)
