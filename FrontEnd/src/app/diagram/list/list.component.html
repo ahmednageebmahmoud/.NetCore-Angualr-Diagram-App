@@ -22,7 +22,7 @@
                         <td [innerHTML]="diadgram.tag">Otto</td>
                         <td class="d-flex justify-content-around">
                             <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-primary" [routerLink]="['/','diagram','downlaod',diadgram.id]">Download</button>
-                            <!-- <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-info mr-auto">Edit</button> -->
+                            <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-info mr-auto" [routerLink]="['/','diagram','edit',diadgram.id]">Edit</button>
                             <button [disabled]="diadgram.isDeleting" type="button" class="btn btn-danger mr-auto" (click)="delete(diadgram)">Delete</button>
                         <div>
                           <span *ngIf="diadgram.isDeleting">Deleting ...</span>

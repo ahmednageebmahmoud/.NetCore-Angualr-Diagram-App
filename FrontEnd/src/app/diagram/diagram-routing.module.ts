@@ -17,11 +17,11 @@ import { ListComponent } from './list/list.component';
     component:BuilderComponent,
     data:{pageState:"create"}
   },
-  // {
-  //   path:"edit/:id",
-  //   component:BuilderComponent,
-    //data:{pageState:"edit"}
-    // },
+  {
+    path:"edit/:id",
+    component:BuilderComponent,
+    data:{pageState:"edit"}
+    },
   {
     path:"downlaod/:id",
     component:BuilderComponent,

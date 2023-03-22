@@ -17,8 +17,8 @@ using System.Threading.Tasks;
 
 namespace Draw.BLL.DiagramBLL
 {
- 
-    public class DiagramService 
+
+    public class DiagramService
     {
 
         private readonly IUnitOfWork _unitOfWork;
@@ -30,7 +30,7 @@ namespace Draw.BLL.DiagramBLL
         }
 
 
-        
+
 
         /// <summary>
         /// Create A New Diagram
@@ -66,20 +66,21 @@ namespace Draw.BLL.DiagramBLL
             try
             {
                 var diagram = _unitOfWork.Diagrams.FindById(model.Id.Value);
+                if (diagram is null)
+                {
+                    return Reponse<DiagramDTO>.Error("Item is not found");
+                }
                 if (diagram.FKUser_Id != userId)
                 {
                     return Reponse<DiagramDTO>.Error("You have not authorize");
                 }
 
-                var newModel = _mapper.Map<Diagram>(model);
-                newModel.FKUser_Id = userId;
-
-                _unitOfWork.Diagrams.Update(newModel);
+                var updatedModel = _mapper.Map<DiagramModel, Diagram>(model, diagram);
+                _unitOfWork.Diagrams.Update(updatedModel);
                 if (!_unitOfWork.Complate().Result)
                     return Reponse<DiagramDTO>.Error("Can not update");
 
-                model.Id = newModel.Id;
-                return Reponse<DiagramDTO>.Success("Created Successfully", this._mapper.Map<DiagramDTO>(newModel));
+          return Reponse<DiagramDTO>.Success("Updated Successfully", this._mapper.Map<DiagramDTO>(updatedModel));
             }
             catch (Exception ex)
             {
@@ -102,7 +103,7 @@ namespace Draw.BLL.DiagramBLL
                 {
                     return Reponse<DiagramDTO>.Error("Item is not found");
                 }
-                if (diagram.FKUser_Id != userId )
+                if (diagram.FKUser_Id != userId)
                 {
                     return Reponse<DiagramDTO>.Error("You have not authorize");
                 }
@@ -152,13 +153,13 @@ namespace Draw.BLL.DiagramBLL
         /// </summary>
         /// <param name="userId"></param>
         /// <returns></returns>
-        public async Task< IResponse<IEnumerable<DiagramDTO>>> SelectByUser(string userId)
+        public async Task<IResponse<IEnumerable<DiagramDTO>>> SelectByUser(string userId)
         {
             try
             {
-                var list=await
-                this._unitOfWork.Diagrams.GetAll(c => c.FKUser_Id == userId,o=> o.Id);
-                var listMapper=this._mapper.Map<IEnumerable<DiagramDTO>>(list);
+                var list = await
+                this._unitOfWork.Diagrams.GetAll(c => c.FKUser_Id == userId, o => o.Id);
+                var listMapper = this._mapper.Map<IEnumerable<DiagramDTO>>(list);
                 return Reponse<IEnumerable<DiagramDTO>>.Success(listMapper);
             }
             catch (Exception ex)

@@ -29,9 +29,17 @@ builder.Services.AddCorsConfigurations(builder);
 // Add services to the container.
 builder.Services.AddControllers();
 
+//Add Swagger Configurations
+builder.Services.AddSwaggerConfigurations(builder);
 
 //DBContext Configurations
 builder.Services.AddContextConfigurations(builder);
+
+//Add JWT Service As Scoped
+builder.Services.AddScoped<IJWTService, JWTService>();
+
+///Add Auth Service As Scoped
+builder.Services.AddScoped<IAuthService, AuthService>();
 
 ///Add  Diagram Service As Scoped
 builder.Services.AddScoped<DiagramService, DiagramService>();
@@ -50,7 +58,9 @@ var app = builder.Build();
 app.UseCorsConfigurations();
 
 //Use Swagger
-app.UseSwaggerConfigurations();
+ app.UseSwaggerConfigurations();
+
+ 
 
 app.UseHttpsRedirection();
 app.UseAuthentication();

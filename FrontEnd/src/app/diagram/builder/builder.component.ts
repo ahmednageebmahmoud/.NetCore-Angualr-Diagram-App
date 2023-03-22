@@ -58,6 +58,21 @@ export class BuilderComponent implements OnInit {
       }).catch(error => this.utilsService.alert.canRequestError(error))
 
   }
+
+  submit(){
+switch (this.pageState) {
+  case "create":
+    this.create();
+    break;
+    case "edit":
+      this.edit();
+    break;
+  default:
+    this.utilsService.alert.infoMesage("Sate Is Not Valid");
+    break;
+}
+  }
+
   /** Create API */
   create() {
 
@@ -80,6 +95,30 @@ export class BuilderComponent implements OnInit {
       }).catch(error => this.utilsService.alert.canRequestError(error))
 
   }
+
+    /** Edit API */
+    edit() {
+
+      if (this.createForm.invalid) {
+        this.isErrorSubmited = true;
+        this.utilsService.alert.errorMessage(null, "Enter Diagram Information");
+        return;
+      }
+  
+      this.diagramsService.edit({
+        ...this.createForm.value,
+        id:this.id,
+        jsonDiagram: this.goJsAPP.save()
+      })
+        .then(res => {
+          this.utilsService.alert.message(res);
+          if (res.isSuccess) {
+            //Rout To List Page
+            this.router.navigateByUrl('/diagram/list');
+          }
+        }).catch(error => this.utilsService.alert.canRequestError(error))
+  
+    }
 
   /**
    * Downlaod Image

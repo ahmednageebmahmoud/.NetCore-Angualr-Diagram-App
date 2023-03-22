@@ -3,7 +3,7 @@
     <h5 class="card-header">Create Diagram</h5>
     <div class="card-body">
       <h5 class="card-title text-center">Enter your diagrams information</h5>
-      <form [formGroup]="createForm" (submit)="create()">
+      <form [formGroup]="createForm" (submit)="submit()">
         <div class="row ">
           <!--Name-->
           <div class="my-1 form-group col-md-6 col-sm-12">
@@ -35,7 +35,7 @@
           <div class="my-1  col-sm-12  row" [ngSwitch]="pageState">
             <button type="submit" class="btn btn-primary col m-1" *ngSwitchCase="'create'">Create</button>
             <button type="button" class="btn btn-info col m-1" *ngSwitchCase="'downlaod'" (click)="downlaodImage()">Downlaod Image</button>
-            <!-- <button type="submit" class="btn btn-primary col m-1">Edit</button> -->
+            <button type="submit" class="btn btn-primary col m-1" *ngSwitchCase="'edit'">Save</button>
           </div>
 
         </div>

@@ -17,24 +17,40 @@ namespace Draw.EF.Repositories
         }
 
         public T FindById(object id) => this._entity.Find(id);
+        public T FindById_NT(object id)
+        {
+            var entity = this.FindById(id);
+            this._Context.Entry(entity).State = EntityState.Detached;
+            return entity;
+        }
+
+
 
         public void Add(T entity) => this._entity.Add(entity);
 
         public void Update(T entity) => this._entity.Update(entity);
 
+        public void UpdateState(T entity)
+        {
+            this._entity.Attach(entity);
+            this._Context.Entry(entity).State = EntityState.Modified;
+
+        }
+
+
         public void Remove(T entity) => this._entity.Remove(entity);
 
         public void Remove(Expression<Func<T, bool>> identity)
         {
-            var Entities=this._entity.Where(identity);
+            var Entities = this._entity.Where(identity);
             this._entity.RemoveRange(Entities);
         }
 
-        public async Task< IEnumerable<T>> GetAll(Expression<Func<T, bool>> identity)
+        public async Task<IEnumerable<T>> GetAll(Expression<Func<T, bool>> identity)
         {
             return await this._entity.Where(identity).ToListAsync();
 
-            
+
 
         }
 

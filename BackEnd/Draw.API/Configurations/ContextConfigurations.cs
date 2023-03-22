@@ -30,7 +30,7 @@ namespace Draw.API.Configurations
             builder.Services.AddDbContext<ApplicationContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("PC_Windows")));
 
             //Add UnitOfWork Repositry As Scoped
-            builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+            builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
 
             return services;

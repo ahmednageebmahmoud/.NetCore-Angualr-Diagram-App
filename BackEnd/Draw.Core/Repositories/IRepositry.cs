@@ -24,6 +24,13 @@ namespace Draw.Core.Repositories
         void Update(T entity);
 
         /// <summary>
+        /// Update Sate , Here You Can Pass New Model And Wuill Attach To Context 
+        /// </summary>
+        /// <param name="entity"></param>
+        void UpdateState(T entity);
+
+
+        /// <summary>
         /// Delete Item From DataBsae By Entity
         /// </summary>
         /// <param name="entity"></param>
@@ -44,12 +51,22 @@ namespace Draw.Core.Repositories
         /// <returns></returns>
         T FindById(object id);
 
+
+        /// <summary>
+        /// Find Item By Id As No Tracking
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        T FindById_NT(object id);
+
+        
+
         /// <summary>
         /// Get All Items Matched
         /// </summary>
         /// <param name="identity"></param>
         /// <returns></returns>
-   Task<    IEnumerable<T>>  GetAll(Expression<Func<T, bool>> identity);
+        Task<    IEnumerable<T>>  GetAll(Expression<Func<T, bool>> identity);
 
 
         /// <summary>

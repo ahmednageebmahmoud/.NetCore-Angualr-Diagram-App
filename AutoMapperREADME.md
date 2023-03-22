@@ -27,7 +27,7 @@
     }
 ```
 
-# #Use
+# #Use With Return New Object Of Target Type
 ```
         private readonly IMapper _mapper;
         public DiagramService(IMapper mapper)
@@ -38,5 +38,20 @@
        void Create(DiagramModel model)
         {                //this._mapper.Map<To>(From);
             var newModel = this._mapper.Map<Diagram>(model);
+        }
+```
+
+# #Use With Return Ovrride On Your Object, This Cate Use When You Need Update Values In Entity Already Tracked From EF Becuse In Next Step You Will Need To Save Change
+```
+        private readonly IMapper _mapper;
+        public DiagramService(IMapper mapper)
+        {
+            this._mapper=mapper;    
+        }
+
+       void Create(DiagramModel model)
+        {   
+                             //this._mapper.Map<From,To>(From,To);
+            var updatedModel = _mapper.Map<DiagramModel, Diagram>(model, diagram);
         }
 ```
