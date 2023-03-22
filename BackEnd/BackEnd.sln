@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draw.Core", "Draw.Core\Draw
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draw.EF", "Draw.EF\Draw.EF.csproj", "{91EFB72A-CE83-4404-BA1F-FCA2E68C6B95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draw.BLL", "Draw.BLL\Draw.BLL.csproj", "{E3CF8D1F-1302-4392-B662-103F72C046F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draw.BLL", "Draw.BLL\Draw.BLL.csproj", "{E3CF8D1F-1302-4392-B662-103F72C046F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,5 @@
 ﻿using Draw.BLL.ReponseBLL;
-using Draw.Core.Helpers.Consts;
+using Draw.Core.Consts;
 using Draw.Core.Model;
 using Microsoft.AspNetCore.Identity;
 using System;

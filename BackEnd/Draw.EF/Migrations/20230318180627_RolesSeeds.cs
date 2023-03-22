@@ -1,4 +1,4 @@
-﻿using Draw.Core.Helpers.Consts;
+﻿using Draw.Core.Consts;
 using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable

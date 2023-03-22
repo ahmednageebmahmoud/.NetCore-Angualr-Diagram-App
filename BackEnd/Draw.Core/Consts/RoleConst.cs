@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Draw.Core.Helpers.Consts
+namespace Draw.Core.Consts
 {
-    public static  class RoleConst
+    public static class RoleConst
     {
-        public static  string Admin=> "Admin";
-        public static  string User => "USER";
+        public static string Admin => "Admin";
+        public static string User => "USER";
     }
 }
