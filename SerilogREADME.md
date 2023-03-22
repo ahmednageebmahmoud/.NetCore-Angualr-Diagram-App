@@ -27,7 +27,6 @@
 --------------------------------------------------------------------------------
 You can manage Serilog configuration from appsetting.json or form code, but I prefer to add Console and MSSqlServer to appsetting.json and manage File configuration from code.
 
-Setting
 ```
     "Serilog": {
     "Using": [ ],
