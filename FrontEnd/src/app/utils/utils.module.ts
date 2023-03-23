@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { NavComponent } from './components/nav/nav.component';
@@ -17,6 +17,7 @@ const components=[
   declarations: components,
   imports: [
     RouterModule,
+    FormsModule      ,
     CommonModule,
     ReactiveFormsModule
 
@@ -28,6 +29,6 @@ const components=[
     UtilsService,
     StorageService,
   ],
-  exports:[...components,CommonModule,ReactiveFormsModule],
+  exports:[...components,CommonModule,ReactiveFormsModule,FormsModule],
 })
 export class UtilsModule { }

@@ -135,11 +135,11 @@ export class BuilderComponent implements OnInit {
 
     //Load With Empty Object If We Download Or Edit 
     if (!this.id)
-      this.goJsAPP.load({})
+      this.goJsAPP.load(null)
   }
 
-  /** Add a New Shep */
-  addShep(options: any) {
-    this.goJsAPP.addShep(options)
+  /** Add a New Shape */
+  addShape(options: any) {
+    this.goJsAPP.shape .add(options)
   }
 }

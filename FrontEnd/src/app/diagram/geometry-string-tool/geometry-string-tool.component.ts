@@ -14,6 +14,19 @@ declare var GoJsAPP: any;
     background: #fff0c1;
     outline: none;
     }
+    .diagram-demo{
+      height:350px
+    }
+
+    [type='range']{
+      -webkit-appearance: none;
+      width: 100%;
+      height: 25px;
+      outline: none;
+      opacity: 0.7;
+      -webkit-transition: .2s;
+      transition: opacity .2s;
+    }
     `
   ]
 })
@@ -21,7 +34,7 @@ export class GeometryStringToolComponent implements OnInit {
   @Output('add') onAdd = new EventEmitter<any>();
 
   form = new FormGroup({
-    color: new FormControl('white'),
+    color: new FormControl('#ffe74d'),
 
     m: new FormGroup({
       x: new FormControl(0),
@@ -49,12 +62,18 @@ export class GeometryStringToolComponent implements OnInit {
     })
   })
   goJsAPP: any;
+  shape: any;
+  enterType:any="slider";
+  min=0;
+  max=250;
+  inputType="range";
 
   constructor() {
   }
 
   ngOnInit(): void {
-this.initGOJS();
+    this.initGOJS();
+    this.applyChanges();
   }
 
   /**
@@ -63,21 +82,32 @@ this.initGOJS();
   initGOJS() {
     this.goJsAPP = new GoJsAPP(null, 'myDiagramDemo');
     this.goJsAPP.load({})
-   this.goJsAPP.addShep(this.buildOptions())
+    this.shape = this.goJsAPP.shape.add(this.buildOptions());
   }
 
-
+  /** On Form Submit */
   submit() {
-
     this.onAdd.emit(this.buildOptions());
   }
 
+  /** Live Demo Privew */
+  applyChanges() {
+    this.form.valueChanges.subscribe(va => {
+      let newOptions = this.buildOptions();
+      this.goJsAPP.shape.update(this.shape, 'geometryString', newOptions.geometryString)
+      this.goJsAPP.shape.update(this.shape, 'fill', newOptions.fill)
+    })
+  }
+
+  /** Build Options */
   buildOptions() {
     return {
       geometryString: this.buildGeometryString(),
-      fill: this.form.value.color
+      fill: this.form.value.color,
     }
   }
+
+  /** Build Geometry String */
   buildGeometryString() {
     return 'F ' +
       `M${this.form.value.m?.x} ${this.form.value.m?.y} ` +

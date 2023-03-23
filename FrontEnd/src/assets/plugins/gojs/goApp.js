@@ -9,7 +9,7 @@ function GoJsAPP(_myPaletteDivElementId, _myDiagramDivId) {
   // For details, see https://gojs.net/latest/intro/buildingObjects.html
   const $ = go.GraphObject.make;  // for conciseness in defining templates
 
-  myDiagram =
+let  myDiagram =
     $(go.Diagram, myDiagramDivId,  // must name or refer to the DIV HTML element
       {
         "LinkDrawn": showLinkLabel,  // this DiagramEvent listener is defined below
@@ -278,6 +278,7 @@ function GoJsAPP(_myPaletteDivElementId, _myDiagramDivId) {
    * @param {*} json 
    */
   function load(json) {
+    if(json)
     myDiagram.model = go.Model.fromJson(json);
 
     // initialize the Palette that is on the left side of the page
@@ -312,8 +313,6 @@ function GoJsAPP(_myPaletteDivElementId, _myDiagramDivId) {
     a.click();
   }
 
-
-
   // print the diagram by opening a new window holding SVG images of the diagram contents for each page
   function print() {
     var svgWindow = window.open();
@@ -334,7 +333,7 @@ function GoJsAPP(_myPaletteDivElementId, _myDiagramDivId) {
     setTimeout(() => svgWindow.print(), 1);
   }
 
-  function addShep(options) {
+  function addShape (options) {
     var shape = $(go.Shape,
       Object.assign(
         {
@@ -344,17 +343,24 @@ function GoJsAPP(_myPaletteDivElementId, _myDiagramDivId) {
         }
         ,options)
       );
-    myDiagram.add($(go.Node, shape));
-
+      var node=$(go.Node, "End",  shape);
+    myDiagram.add(node);
     return shape
   }
 
+  function updateShapeData(node,key,value){
+      myDiagram.model.setDataProperty(node,key,value);
+      myDiagram.commitTransaction("changenodestate");
+  }
 
   return {
     load,
     print,
     save,
-    addShep,
+    shape :{
+      add:addShape ,
+update:updateShapeData
+    },
     export: {
       image: downloadImage
     }
