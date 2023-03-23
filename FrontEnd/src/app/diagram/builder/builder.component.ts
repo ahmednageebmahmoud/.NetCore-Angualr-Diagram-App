@@ -50,8 +50,8 @@ export class BuilderComponent implements OnInit {
           this.goJsAPP.load(res.result.jsonDiagram);
 
           //Direct Download
-          if(this.pageState=="downlaod")
-          this.downlaodImage();
+          if (this.pageState == "downlaod")
+            this.downlaodImage();
         } else {
           this.utilsService.alert.message(res);
         }
@@ -59,18 +59,18 @@ export class BuilderComponent implements OnInit {
 
   }
 
-  submit(){
-switch (this.pageState) {
-  case "create":
-    this.create();
-    break;
-    case "edit":
-      this.edit();
-    break;
-  default:
-    this.utilsService.alert.infoMesage("Sate Is Not Valid");
-    break;
-}
+  submit() {
+    switch (this.pageState) {
+      case "create":
+        this.create();
+        break;
+      case "edit":
+        this.edit();
+        break;
+      default:
+        this.utilsService.alert.infoMesage("Sate Is Not Valid");
+        break;
+    }
   }
 
   /** Create API */
@@ -96,29 +96,29 @@ switch (this.pageState) {
 
   }
 
-    /** Edit API */
-    edit() {
+  /** Edit API */
+  edit() {
 
-      if (this.createForm.invalid) {
-        this.isErrorSubmited = true;
-        this.utilsService.alert.errorMessage(null, "Enter Diagram Information");
-        return;
-      }
-  
-      this.diagramsService.edit({
-        ...this.createForm.value,
-        id:this.id,
-        jsonDiagram: this.goJsAPP.save()
-      })
-        .then(res => {
-          this.utilsService.alert.message(res);
-          if (res.isSuccess) {
-            //Rout To List Page
-            this.router.navigateByUrl('/diagram/list');
-          }
-        }).catch(error => this.utilsService.alert.canRequestError(error))
-  
+    if (this.createForm.invalid) {
+      this.isErrorSubmited = true;
+      this.utilsService.alert.errorMessage(null, "Enter Diagram Information");
+      return;
     }
+
+    this.diagramsService.edit({
+      ...this.createForm.value,
+      id: this.id,
+      jsonDiagram: this.goJsAPP.save()
+    })
+      .then(res => {
+        this.utilsService.alert.message(res);
+        if (res.isSuccess) {
+          //Rout To List Page
+          this.router.navigateByUrl('/diagram/list');
+        }
+      }).catch(error => this.utilsService.alert.canRequestError(error))
+
+  }
 
   /**
    * Downlaod Image
@@ -128,13 +128,18 @@ switch (this.pageState) {
   }
 
   /**
-   * Image GO JS
+   * Init GO JS
    */
   initGOJS() {
     this.goJsAPP = new GoJsAPP('myPaletteDiv', 'myDiagramDiv');
 
     //Load With Empty Object If We Download Or Edit 
-    if(!this.id)
-    this.goJsAPP.load({})
+    if (!this.id)
+      this.goJsAPP.load({})
+  }
+
+  /** Add a New Shep */
+  addShep(options: any) {
+    this.goJsAPP.addShep(options)
   }
 }

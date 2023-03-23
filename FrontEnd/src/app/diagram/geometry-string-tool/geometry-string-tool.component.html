@@ -1,0 +1,84 @@
+<div class="pt-5">
+  <div class="card">
+    <h5 class="card-header">Create Custom Shep</h5>
+    <div class="card-body">
+      <h5 class="card-title text-center">Enter your shep geometry information</h5>
+      <form [formGroup]="form" (submit)="submit()">
+        <div class="row">
+          <!--Settings-->
+          <div class="col-sm-12 col-md-8 row">
+            <!--Move commands-->
+            <div class="col-sm-12 form-group mb-3" title="Move commands begin a new subpath" formGroupName="m">
+              <div>Move commands:</div>
+              X= <input type="number" formControlName="x">,
+              Y=<input type="number" formControlName="y">
+            </div>
+            <!--Line command-->
+            <div class="col-sm-12 form-group mb-3"
+              title="Line command adds a straight line segment from the previous point to the new point."
+              formGroupName="l1">
+              <div>Line command:</div>
+              X= <input type="number" formControlName="x">,
+              Y=<input type="number" formControlName="y">
+            </div>
+            <!--Quadratic Bezier Curves-->
+            <div class="form-group col-sm-12 mb-3" title="Quadratic Bezier Curves" formGroupName="q1">
+              <div>Quadratic Bezier Curves:</div>
+              X1= <input type="number" formControlName="x1">,
+              Y1= <input type="number" formControlName="y1">,
+              X= <input type="number" formControlName="x">,
+              y= <input type="number" formControlName="y">
+            </div>
+            <!--Line command-->
+            <div class="col-sm-12 form-group mb-3 mb-3"
+              title="Line command adds a straight line segment from the previous point to the new point."
+              formGroupName="l2">
+              <div>Line command:</div>
+              X= <input type="number" formControlName="x">,
+              Y=<input type="number" formControlName="y">
+            </div>
+            <!--Quadratic Bezier Curves-->
+            <div class="form-group col-sm-12 mb-3" title="Quadratic Bezier Curves" formGroupName="q2">
+              <div>Quadratic Bezier Curves:</div>
+              X1= <input type="number" formControlName="x1">,
+              Y1= <input type="number" formControlName="y1">,
+              X= <input type="number" formControlName="x">,
+              y= <input type="number" formControlName="y">
+            </div>
+            <!--Color-->
+          <div class="form-group col-sm-12 mb-3">
+            Color: <input type="color" formControlName="color">
+          </div>
+        </div>
+
+          <!--Live Demo-->
+          <div class="col-sm-12 col-md-4">
+            <label >Live Demo</label>
+            <div id="myDiagramDemo" class="diagram-demo">
+              <canvas tabindex="0" width="954" height="250"
+                style="position: absolute; top: 0px; left: 0px; z-index: 2; user-select: none; touch-action: none; width: 954px; height: 500px; cursor: auto;"></canvas>
+              <div style="position: absolute; overflow: auto; width: 954px; height: 250px; z-index: 1;">
+                <div style="position: absolute; width: 1px; height: 1px;"></div>
+              </div>
+            </div>
+            <button type="submit" class="btn btn-primary col m-1 w-100">Add</button>
+          </div>
+
+          <!--Add-->
+          <div class="col-sm-12 row">
+            <div class="col-sm-12">
+              Geometry String Path:
+              F
+              M{{form.value.m?.x}} {{form.value.m?.y}}
+              L{{form.value.l1?.x}} {{form.value.l1?.y}}
+              Q{{form.value.q1?.x1}} {{form.value.q1?.y1}} {{form.value.q1?.x}} {{form.value.q1?.y}}
+              L{{form.value.l2?.x}} {{form.value.l2?.y}}
+              Q{{form.value.q2?.x1}} {{form.value.q2?.y1}} {{form.value.q2?.x}} {{form.value.q2?.y}}
+              z
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
