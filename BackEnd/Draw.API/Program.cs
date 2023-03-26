@@ -50,7 +50,8 @@ builder.Services.AddJWTConfigurations(builder);
 //Add Auto Mapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-
+//Add Hangfire Configrations
+builder.Services.AddHangfireConfigurations(builder);
 
 var app = builder.Build();
 
@@ -60,7 +61,8 @@ app.UseCorsConfigurations();
 //Use Swagger
  app.UseSwaggerConfigurations();
 
- 
+//User Hangfire
+app.UseHangfireConfigurations();
 
 app.UseHttpsRedirection();
 app.UseAuthentication();
