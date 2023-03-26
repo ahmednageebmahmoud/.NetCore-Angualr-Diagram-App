@@ -68,7 +68,7 @@ The links provided below will assist you in understanding every aspect of this a
 * Entity Freamwork Code First App: [README.md](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/Entity%20Framework)
 * JWT App: [jwt.io](https://jwt.io/) - [README.md](https://github.com/ahmednageebmahmoud/LearnNetCoreWepAPI/tree/master/LearnNetCoreWepAPI.Authorization)
 * Serilog: [serilog.net](https://serilog.net/) - [README.md](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/SerilogREADME.md) 
-* Hangfire:  [automapper.org](https://www.hangfire.io) - [README.md](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/README.md) 
-* Auto Mapper:  [automapper.org](https://automapper.org/) - [README.md](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/HangfireREADME.md) 
+* Hangfire:  [hangfire.io](https://www.hangfire.io) - [README.md](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/HangfireREADME.md) 
+* Auto Mapper:  [automapper.org](https://automapper.org/) - [README.md](https://github.com/ahmednageebmahmoud/.NetCore-Angualr-Diagram-App/blob/master/AutoMapperREADME.md) 
 * Go JS Flowchart: [gojs.net](https://gojs.net/latest/samples/flowchart.html)
 /
